@@ -25,7 +25,7 @@
     justify-content: center;
     padding: 40px 24px;
   }
-  .brand { text-align: center; margin-bottom: 48px; }
+  .brand { text-align: center; margin-bottom: 40px; }
   .brand h1 {
     margin: 0 0 10px;
     font-size: 2.6rem;
@@ -37,14 +37,14 @@
     gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 720px;
+    max-width: 900px;
   }
   .option-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 18px;
-    width: 260px;
-    padding: 36px 24px;
+    width: 220px;
+    padding: 24px 20px 28px;
     text-align: center;
     text-decoration: none;
     color: var(--ink);
@@ -56,24 +56,19 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.09);
   }
+  .option-card img.cover {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+  }
   .option-card.g2:hover { border-color: #2f5f8f; }
   .option-card.g3:hover { border-color: #2f6f4f; }
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 18px;
-    color: #fff;
-  }
-  .g2 .badge { background: #2f5f8f; }
-  .g3 .badge { background: #2f6f4f; }
+  .option-card.g4:hover { border-color: #b5541f; }
   .option-card h2 { margin: 0 0 6px; font-size: 1.3rem; }
-  .option-card p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+  .option-card p { margin: 0; color: var(--muted); font-size: 0.85rem; }
   footer {
     margin-top: 48px;
     color: var(--muted);
@@ -91,14 +86,19 @@
 
 <div class="picker">
   <a class="option-card g2" href="grammar-2/index.html?app=smart-grammar">
-    <span class="badge">2</span>
+    <img class="cover" src="grammar-2/images/cover.jpg" alt="Grammar 2 cover">
     <h2>Grammar 2</h2>
     <p>14 lessons currently available</p>
   </a>
   <a class="option-card g3" href="grammar-3/index.html?app=smart-grammar">
-    <span class="badge">3</span>
+    <img class="cover" src="grammar-3/images/cover.jpg" alt="Grammar 3 cover">
     <h2>Grammar 3</h2>
     <p>41 lessons, A through 18b</p>
+  </a>
+  <a class="option-card g4" href="grammar-4/index.html?app=smart-grammar">
+    <img class="cover" src="grammar-4/images/cover.jpg" alt="Grammar 4 cover">
+    <h2>Grammar 4</h2>
+    <p>19 pages (order still being confirmed)</p>
   </a>
 </div>
 

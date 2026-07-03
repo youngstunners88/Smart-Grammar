@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grammar 2 — Lesson Library</title>
+<title>Grammar 4 — Lesson Library</title>
 <style>
   :root {
-    --bg: #f2f6fb;
+    --bg: #fdf5f0;
     --card: #ffffff;
     --ink: #22252b;
     --muted: #6b7280;
-    --accent: #2f5f8f;
-    --border: #dfe6ee;
+    --accent: #b5541f;
+    --border: #f0ddd0;
   }
   * { box-sizing: border-box; }
   body {
@@ -21,6 +21,13 @@
     color: var(--ink);
   }
   header { padding: 40px 24px 24px; text-align: center; }
+  .cover-thumb {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+  }
   header h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -0.02em; }
   header p { margin: 0; color: var(--muted); font-size: 1rem; }
   a.back-link {
@@ -107,27 +114,19 @@
     .viewer button.nav { width: 40px; height: 40px; font-size: 1.2rem; }
     .viewer .label { font-size: 0.85rem; }
   }
-
-  .cover-thumb {
-    width: 120px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    margin-bottom: 16px;
-  }
 </style>
 </head>
 <body>
 
 <header>
   <img src="images/cover.jpg" alt="Cover" class="cover-thumb">
-  <h1>Grammar 2 — Lesson Library</h1>
+  <h1>Grammar 4 — Lesson Library</h1>
   <p>Click any lesson below to open it full-screen. A resource for teachers.</p>
   <a class="back-link" href="../index.html" id="backLink" style="display:none;">&larr; Back to Smart Grammar</a>
 </header>
 
 <div class="container">
-  <div class="notice">Some lessons (1, 4–12) haven't been uploaded to the source folder yet — they'll appear here automatically once added.</div>
+  <div class="notice">These 19 pages aren't labeled "Lesson 1, 2, 3…" in the source folder yet — they're ordered by the date/time each photo was taken. Please check the order and rename the files in Drive if anything needs adjusting.</div>
   <div class="grid" id="grid"></div>
   <div class="progress-note" id="progressNote"></div>
 </div>
@@ -141,23 +140,27 @@
 </div>
 
 <script>
-  // Ordered lesson list for Grammar 2 based on what's currently in the source folder.
-  // Missing: Lesson 1, Lessons 4 through 12 (and their b-variants).
+  // Order inferred from photo capture timestamps (EXIF) since source files have generic camera names (IMG_xxxx).
   const lessons = [
-    { file: "hello-a.jpg",   label: "Hello A" },
-    { file: "lesson-02.jpg", label: "Lesson 2" },
-    { file: "lesson-03.jpg", label: "Lesson 3" },
-    { file: "lesson-13.jpg", label: "Lesson 13" },
-    { file: "lesson-14.jpg", label: "Lesson 14" },
-    { file: "lesson-14b.jpg", label: "Lesson 14b" },
-    { file: "lesson-15.jpg", label: "Lesson 15" },
-    { file: "lesson-15b.jpg", label: "Lesson 15b" },
-    { file: "lesson-16.jpg", label: "Lesson 16" },
-    { file: "lesson-16b.jpg", label: "Lesson 16b" },
-    { file: "lesson-17.jpg", label: "Lesson 17" },
-    { file: "lesson-17b.jpg", label: "Lesson 17b" },
-    { file: "lesson-18.jpg", label: "Lesson 18" },
-    { file: "lesson-18b.jpg", label: "Lesson 18b" }
+    { file: "lesson-01.jpg", label: "Page 1" },
+    { file: "lesson-02.jpg", label: "Page 2" },
+    { file: "lesson-03.jpg", label: "Page 3" },
+    { file: "lesson-04.jpg", label: "Page 4" },
+    { file: "lesson-05.jpg", label: "Page 5" },
+    { file: "lesson-06.jpg", label: "Page 6" },
+    { file: "lesson-07.jpg", label: "Page 7" },
+    { file: "lesson-08.jpg", label: "Page 8" },
+    { file: "lesson-09.jpg", label: "Page 9" },
+    { file: "lesson-10.jpg", label: "Page 10" },
+    { file: "lesson-11.jpg", label: "Page 11" },
+    { file: "lesson-12.jpg", label: "Page 12" },
+    { file: "lesson-13.jpg", label: "Page 13" },
+    { file: "lesson-14.jpg", label: "Page 14" },
+    { file: "lesson-15.jpg", label: "Page 15" },
+    { file: "lesson-16.jpg", label: "Page 16" },
+    { file: "lesson-17.jpg", label: "Page 17" },
+    { file: "lesson-18.jpg", label: "Page 18" },
+    { file: "lesson-19.jpg", label: "Page 19" }
   ];
 
   const grid = document.getElementById('grid');
@@ -170,7 +173,7 @@
     card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openViewer(i); });
     grid.appendChild(card);
   });
-  document.getElementById('progressNote').textContent = `${lessons.length} lessons currently available · use ← → or the arrows to move between them, Esc to close`;
+  document.getElementById('progressNote').textContent = `${lessons.length} pages currently available · use ← → or the arrows to move between them, Esc to close`;
 
   if (new URLSearchParams(location.search).get('app') === 'smart-grammar') {
     document.getElementById('backLink').style.display = 'inline-block';
