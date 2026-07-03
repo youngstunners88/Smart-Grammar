@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar 2 — Lesson Library</title>
+<style>
+  :root {
+    --bg: #f2f6fb;
+    --card: #ffffff;
+    --ink: #22252b;
+    --muted: #6b7280;
+    --accent: #2f5f8f;
+    --border: #dfe6ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header { padding: 40px 24px 24px; text-align: center; }
+  header h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -0.02em; }
+  header p { margin: 0; color: var(--muted); font-size: 1rem; }
+  a.back-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a.back-link:hover { text-decoration: underline; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px 60px; }
+  .notice {
+    background: #fff7e6;
+    border: 1px solid #f0d9a6;
+    color: #7a5b12;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .lesson-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    user-select: none;
+  }
+  .lesson-card:hover, .lesson-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+    outline: none;
+  }
+  .lesson-card .num {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .progress-note { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 8px; }
+
+  .viewer {
+    position: fixed; inset: 0; background: rgba(10, 10, 10, 0.96);
+    display: none; align-items: center; justify-content: center; z-index: 1000;
+  }
+  .viewer.open { display: flex; }
+  .viewer img { max-width: 96vw; max-height: 92vh; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 4px; }
+  .viewer .label {
+    position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+    color: #fff; font-size: 1rem; font-weight: 600;
+    background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 999px;
+  }
+  .viewer button.nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.12); color: #fff; border: none;
+    width: 52px; height: 52px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .viewer button.nav:hover { background: rgba(255,255,255,0.25); }
+  .viewer button.prev { left: 18px; }
+  .viewer button.next { right: 18px; }
+  .viewer button.close {
+    position: absolute; top: 14px; right: 18px; background: transparent; color: #fff;
+    border: none; font-size: 2rem; line-height: 1; cursor: pointer;
+  }
+  @media (max-width: 640px) {
+    .viewer button.nav { width: 40px; height: 40px; font-size: 1.2rem; }
+    .viewer .label { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Grammar 2 — Lesson Library</h1>
+  <p>Click any lesson below to open it full-screen. A resource for teachers.</p>
+  <a class="back-link" href="../index.html" id="backLink" style="display:none;">&larr; Back to Smart Grammar</a>
+</header>
+
+<div class="container">
+  <div class="notice">Some lessons (1, 4–12) haven't been uploaded to the source folder yet — they'll appear here automatically once added.</div>
+  <div class="grid" id="grid"></div>
+  <div class="progress-note" id="progressNote"></div>
+</div>
+
+<div class="viewer" id="viewer">
+  <div class="label" id="viewerLabel"></div>
+  <button class="nav prev" id="prevBtn" aria-label="Previous lesson">&#8249;</button>
+  <img id="viewerImg" src="" alt="">
+  <button class="nav next" id="nextBtn" aria-label="Next lesson">&#8250;</button>
+  <button class="close" id="closeBtn" aria-label="Close">&times;</button>
+</div>
+
+<script>
+  // Ordered lesson list for Grammar 2 based on what's currently in the source folder.
+  // Missing: Lesson 1, Lessons 4 through 12 (and their b-variants).
+  const lessons = [
+    { file: "hello-a.jpg",   label: "Hello A" },
+    { file: "lesson-02.jpg", label: "Lesson 2" },
+    { file: "lesson-03.jpg", label: "Lesson 3" },
+    { file: "lesson-13.jpg", label: "Lesson 13" },
+    { file: "lesson-14.jpg", label: "Lesson 14" },
+    { file: "lesson-14b.jpg", label: "Lesson 14b" },
+    { file: "lesson-15.jpg", label: "Lesson 15" },
+    { file: "lesson-15b.jpg", label: "Lesson 15b" },
+    { file: "lesson-16.jpg", label: "Lesson 16" },
+    { file: "lesson-16b.jpg", label: "Lesson 16b" },
+    { file: "lesson-17.jpg", label: "Lesson 17" },
+    { file: "lesson-17b.jpg", label: "Lesson 17b" },
+    { file: "lesson-18.jpg", label: "Lesson 18" },
+    { file: "lesson-18b.jpg", label: "Lesson 18b" }
+  ];
+
+  const grid = document.getElementById('grid');
+  lessons.forEach((lesson, i) => {
+    const card = document.createElement('div');
+    card.className = 'lesson-card';
+    card.tabIndex = 0;
+    card.innerHTML = `<span class="num">${i + 1} / ${lessons.length}</span>${lesson.label}`;
+    card.addEventListener('click', () => openViewer(i));
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openViewer(i); });
+    grid.appendChild(card);
+  });
+  document.getElementById('progressNote').textContent = `${lessons.length} lessons currently available · use ← → or the arrows to move between them, Esc to close`;
+
+  if (new URLSearchParams(location.search).get('app') === 'smart-grammar') {
+    document.getElementById('backLink').style.display = 'inline-block';
+  }
+
+  const viewer = document.getElementById('viewer');
+  const viewerImg = document.getElementById('viewerImg');
+  const viewerLabel = document.getElementById('viewerLabel');
+  let current = 0;
+
+  function openViewer(i) { current = i; render(); viewer.classList.add('open'); }
+  function render() {
+    const lesson = lessons[current];
+    viewerImg.src = 'images/' + lesson.file;
+    viewerImg.alt = lesson.label;
+    viewerLabel.textContent = `${lesson.label}  (${current + 1} / ${lessons.length})`;
+  }
+  function closeViewer() { viewer.classList.remove('open'); }
+  function nextLesson() { current = (current + 1) % lessons.length; render(); }
+  function prevLesson() { current = (current - 1 + lessons.length) % lessons.length; render(); }
+
+  document.getElementById('closeBtn').addEventListener('click', closeViewer);
+  document.getElementById('nextBtn').addEventListener('click', nextLesson);
+  document.getElementById('prevBtn').addEventListener('click', prevLesson);
+  viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!viewer.classList.contains('open')) return;
+    if (e.key === 'Escape') closeViewer();
+    if (e.key === 'ArrowRight') nextLesson();
+    if (e.key === 'ArrowLeft') prevLesson();
+  });
+</script>
+
+</body>
+</html>
