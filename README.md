@@ -20,6 +20,6 @@ If you'd rather share a link instead of a download:
 
 ## Notes on content
 
+- Grammar 2 is now complete: 18 lessons (with b-variants) plus Hello A/B/C intros, 41 pages total. Lessons are in natural numeric order (Lesson 2 before Lesson 10, etc.) — a few duplicate/typo files from the source folder (e.g. "Leeson 10", "Copy of Lesson 2") were deduplicated automatically.
 - Grammar 3 currently has 41 lessons (A through 18b). Lesson 17 (non-b) is not yet in the source folder.
-- Grammar 2 currently has 14 lessons available (Hello A, 2, 3, 13–18 with b-variants). Lessons 1 and 4–12 are not yet in the source folder — they'll be added once uploaded.
-- Grammar 4 currently has 19 pages. The source files aren't labeled with lesson numbers yet, so they're ordered by the date/time each photo was taken — please verify the order is correct and rename files as "Lesson X" in Drive if any need adjusting.
+- Grammar 4 currently has 19 pages, still being finalized — excluded from this delivery per request. The source files aren't labeled with lesson numbers yet, so they were ordered by photo timestamp; will revisit once the folder is complete.

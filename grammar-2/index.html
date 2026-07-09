@@ -127,7 +127,7 @@
 </header>
 
 <div class="container">
-  <div class="notice">Some lessons (1, 4–12) haven't been uploaded to the source folder yet — they'll appear here automatically once added.</div>
+  <div class="notice">All 18 lessons are now complete, including Hello A/B/C intros.</div>
   <div class="grid" id="grid"></div>
   <div class="progress-note" id="progressNote"></div>
 </div>
@@ -141,22 +141,49 @@
 </div>
 
 <script>
-  // Ordered lesson list for Grammar 2 based on what's currently in the source folder.
-  // Missing: Lesson 1, Lessons 4 through 12 (and their b-variants).
+  // Full ordered lesson list for Grammar 2 — natural numeric order (Lesson 2 before Lesson 10, etc.),
+  // not the raw alphabetical order some file listings show.
   const lessons = [
-    { file: "hello-a.jpg",   label: "Hello A" },
-    { file: "lesson-02.jpg", label: "Lesson 2" },
-    { file: "lesson-03.jpg", label: "Lesson 3" },
-    { file: "lesson-13.jpg", label: "Lesson 13" },
-    { file: "lesson-14.jpg", label: "Lesson 14" },
+    { file: "hello-a.jpg",    label: "Hello A" },
+    { file: "hello-b.jpg",    label: "Hello B" },
+    { file: "hello-b2.jpg",   label: "Hello B (alt)" },
+    { file: "hello-c.jpg",    label: "Hello C" },
+    { file: "hello-c2.jpg",   label: "Hello C (alt)" },
+    { file: "lesson-01.jpg",  label: "Lesson 1" },
+    { file: "lesson-01b.jpg", label: "Lesson 1b" },
+    { file: "lesson-02.jpg",  label: "Lesson 2" },
+    { file: "lesson-02b.jpg", label: "Lesson 2b" },
+    { file: "lesson-03.jpg",  label: "Lesson 3" },
+    { file: "lesson-03b.jpg", label: "Lesson 3b" },
+    { file: "lesson-04.jpg",  label: "Lesson 4" },
+    { file: "lesson-04b.jpg", label: "Lesson 4b" },
+    { file: "lesson-05.jpg",  label: "Lesson 5" },
+    { file: "lesson-05b.jpg", label: "Lesson 5b" },
+    { file: "lesson-06.jpg",  label: "Lesson 6" },
+    { file: "lesson-06b.jpg", label: "Lesson 6b" },
+    { file: "lesson-07.jpg",  label: "Lesson 7" },
+    { file: "lesson-07b.jpg", label: "Lesson 7b" },
+    { file: "lesson-08.jpg",  label: "Lesson 8" },
+    { file: "lesson-08b.jpg", label: "Lesson 8b" },
+    { file: "lesson-09.jpg",  label: "Lesson 9" },
+    { file: "lesson-09b.jpg", label: "Lesson 9b" },
+    { file: "lesson-10.jpg",  label: "Lesson 10" },
+    { file: "lesson-10b.jpg", label: "Lesson 10b" },
+    { file: "lesson-11.jpg",  label: "Lesson 11" },
+    { file: "lesson-11b.jpg", label: "Lesson 11b" },
+    { file: "lesson-12.jpg",  label: "Lesson 12" },
+    { file: "lesson-12b.jpg", label: "Lesson 12b" },
+    { file: "lesson-13.jpg",  label: "Lesson 13" },
+    { file: "lesson-13b.jpg", label: "Lesson 13b" },
+    { file: "lesson-14.jpg",  label: "Lesson 14" },
     { file: "lesson-14b.jpg", label: "Lesson 14b" },
-    { file: "lesson-15.jpg", label: "Lesson 15" },
+    { file: "lesson-15.jpg",  label: "Lesson 15" },
     { file: "lesson-15b.jpg", label: "Lesson 15b" },
-    { file: "lesson-16.jpg", label: "Lesson 16" },
+    { file: "lesson-16.jpg",  label: "Lesson 16" },
     { file: "lesson-16b.jpg", label: "Lesson 16b" },
-    { file: "lesson-17.jpg", label: "Lesson 17" },
+    { file: "lesson-17.jpg",  label: "Lesson 17" },
     { file: "lesson-17b.jpg", label: "Lesson 17b" },
-    { file: "lesson-18.jpg", label: "Lesson 18" },
+    { file: "lesson-18.jpg",  label: "Lesson 18" },
     { file: "lesson-18b.jpg", label: "Lesson 18b" }
   ];
 
