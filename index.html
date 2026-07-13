@@ -69,6 +69,35 @@
   .option-card.g4:hover { border-color: #b5541f; }
   .option-card h2 { margin: 0 0 6px; font-size: 1.3rem; }
   .option-card p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+  .downloads {
+    margin-top: 36px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .downloads a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .downloads a:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
+  .downloads-note {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    max-width: 500px;
+  }
   footer {
     margin-top: 48px;
     color: var(--muted);
@@ -96,6 +125,12 @@
     <p>41 lessons, A through 18b</p>
   </a>
 </div>
+
+<div class="downloads">
+  <a href="https://base44.app/api/apps/6a45db6a5e1aa761e75f1c16/files/mp/public/6a45db6a5e1aa761e75f1c16/3a83fa245_Grammar2.zip">&#8681; Download Grammar 2 (offline, 18MB)</a>
+  <a href="https://base44.app/api/apps/6a45db6a5e1aa761e75f1c16/files/mp/public/6a45db6a5e1aa761e75f1c16/89e59bba6_Grammar3.zip">&#8681; Download Grammar 3 (offline, 23MB)</a>
+</div>
+<p class="downloads-note">Each download is a self-contained offline copy of that book — unzip and open index.html, no internet needed.</p>
 
 <footer>Works fully offline — open this folder's index.html on any Windows, Mac, or Linux computer.</footer>
 
